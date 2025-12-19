@@ -18,6 +18,7 @@ export default function Home() {
         src="/images/EtutorBanner.png"
         alt="hero"
         className={styles.heroImage}
+        loading="lazy"
       />
     </div>
   );
