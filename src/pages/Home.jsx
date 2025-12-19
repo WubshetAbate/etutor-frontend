@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
-import heroImage from "../../public/images/EtutorBanner.png"
 
 export default function Home() {
   return (
@@ -14,8 +13,9 @@ export default function Home() {
       <Link to="/register" className={styles.button}>
         Get Started
       </Link>
+      {/* Use root-relative path for public folder */}
       <img
-        src="../../public/images/EtutorBanner.png"
+        src="/images/EtutorBanner.png"
         alt="hero"
         className={styles.heroImage}
       />
