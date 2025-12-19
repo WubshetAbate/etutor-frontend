@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  width: 320px;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.profileImg {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.scoreItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.scoreImg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.subject {
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+
+.noLecturers {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+}
+.phone {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.phoneLink {
+  color: #1d4ed8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.phoneLink:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+.phone,
+.pdf {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.phoneLink,
+.pdfLink {
+  color: #1d4ed8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.phoneLink:hover,
+.pdfLink:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}

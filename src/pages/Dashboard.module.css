@@ -1,0 +1,119 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tabs button {
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  color: #374151;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.6; /* slight blur effect */
+}
+
+.tabs button:hover {
+  opacity: 0.85;
+  background-color: #d1d5db;
+}
+
+/* Active tab */
+.tabs button.activeTab {
+  background-color: #3b82f6; /* permanent blue */
+  color: white;              /* permanent text color */
+  opacity: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tabs button.activeTab:hover {
+  background-color: #2563eb; /* slightly darker blue on hover */
+  opacity: 1;
+}
+
+/* Sections layout */
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.profile, .courses, .schedule {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 10px;
+  flex: 1 1 45%;
+  min-width: 300px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile {
+  flex: 1 1 100%;
+}
+
+.profile p, .courses p, .schedule p, .courses ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.courses ul {
+  padding-left: 20px;
+}
+
+.courses ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Hover effect on sections */
+.profile:hover, .courses:hover, .schedule:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+/* Logout button */
+.logoutButton {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.logoutButton:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}
