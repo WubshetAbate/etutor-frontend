@@ -18,70 +18,66 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("profile");
   const nav = useNavigate();
 
-  useEffect(() => {
-    async function fetchUser() {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        nav("/login");
-        return;
-      }
-
-      try {
-        const response = await api.get("/auth/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (response.data) {
-          const u = response.data.user || response.data;
-          console.log("Fetched user courses:", u.courses);
-
-          // Courses normalization
-          let normalizedCourses = [];
-          try {
-            const fetchedCourses = Array.isArray(u.courses)
-              ? u.courses
-              : JSON.parse(u.courses || "[]");
-
-            normalizedCourses = fetchedCourses.map((c) => {
-              // Handle stringified JSON inside array
-              if (
-                typeof c === "string" &&
-                c.startsWith("[") &&
-                c.endsWith("]")
-              ) {
-                const parsed = JSON.parse(c);
-                return Array.isArray(parsed)
-                  ? parsed[0].toLowerCase()
-                  : parsed.toLowerCase();
-              }
-              return c.toLowerCase();
-            });
-          } catch (err) {
-            normalizedCourses = [];
-          }
-
-          setUser({
-            name: u.name || "",
-            email: u.email || "",
-            grade: u.grade || "",
-            phone: u.phone || "",
-            courses: normalizedCourses,
-            hoursPerDay: u.hoursPerDay || "",
-            weekday: Array.isArray(u.weekday)
-              ? u.weekday
-              : u.weekday
-              ? [u.weekday]
-              : [],
-          });
-        }
-      } catch (err) {
-        console.error("Failed to fetch user info:", err);
-        nav("/login");
-      }
+useEffect(() => {
+  async function fetchUser() {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      nav("/login");
+      return;
     }
 
-    fetchUser();
-  }, [nav]);
+    try {
+      const response = await api.get("/auth/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (response.data) {
+        const u = response.data.user || response.data;
+        console.log("Fetched user courses:", u.courses);
+
+        // Courses normalization (fixed to include all courses)
+        let normalizedCourses = [];
+        try {
+          const fetchedCourses = Array.isArray(u.courses)
+            ? u.courses
+            : JSON.parse(u.courses || "[]");
+
+          normalizedCourses = fetchedCourses.flatMap((c) => {
+            if (typeof c === "string" && c.startsWith("[") && c.endsWith("]")) {
+              const parsed = JSON.parse(c);
+              return Array.isArray(parsed)
+                ? parsed.map((item) => item.toLowerCase())
+                : [parsed.toLowerCase()];
+            }
+            return [c.toLowerCase()];
+          });
+        } catch (err) {
+          normalizedCourses = [];
+        }
+
+        setUser({
+          name: u.name || "",
+          email: u.email || "",
+          grade: u.grade || "",
+          phone: u.phone || "",
+          courses: normalizedCourses,
+          hoursPerDay: u.hoursPerDay || "",
+          weekday: Array.isArray(u.weekday)
+            ? u.weekday
+            : u.weekday
+            ? [u.weekday]
+            : [],
+        });
+      }
+    } catch (err) {
+      console.error("Failed to fetch user info:", err);
+      nav("/login");
+    }
+  }
+
+  fetchUser();
+}, [nav]);
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");

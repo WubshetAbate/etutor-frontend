@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import Lecturers from "./pages/Lecturers";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import styles from "./App.module.css";
 
@@ -22,7 +21,6 @@ export default function App() {
 
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>

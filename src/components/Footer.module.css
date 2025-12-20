@@ -1,15 +1,94 @@
 .footer {
   background-color: #1d4ed8;
   color: white;
-  margin-top: 2rem;
+  padding: 3rem 2rem 1rem 2rem;
+  font-family: Arial, sans-serif;
 }
 
-.container {
-  max-width: 1100px;
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  gap: 2rem;
 }
 
+.column {
+  flex: 1 1 250px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.columnTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Contact info icons */
+.icon {
+  margin-right: 0.5rem;
+  color: #f48a8a;
+}
+
+.column p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column p a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.column p a:hover {
+  color: #f48a8a;
+}
+
+/* Social media icons */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social a {
+  color: white;
+  transition: color 0.3s;
+}
+
+.social a:hover {
+  color: #f48a8a;
+}
+
+/* Copy section */
+.copy {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  color: #e0e0e0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .column p {
+    justify-content: center;
+  }
+
+  .social {
+    gap: 1.5rem;
+  }
+}
